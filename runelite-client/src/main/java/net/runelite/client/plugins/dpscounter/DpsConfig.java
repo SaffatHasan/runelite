@@ -66,6 +66,17 @@ public interface DpsConfig extends Config
 
 	@ConfigItem(
 		position = 3,
+		keyName = "printdamage",
+		name = "Print Damage",
+		description = "Prints the damage done to chat when a boss dies."
+	)
+	default boolean printDamage()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		position = 4,
 		keyName = "bossDamage",
 		name = "Only boss damage",
 		description = "Only count damage done to the boss, and not to other NPCs."

@@ -270,6 +270,14 @@ public class DpsCounterPlugin extends Plugin
 
 			if (dpsConfig.autoreset())
 			{
+				if (dpsConfig.printDamage()) {
+					StringBuilder sb = new StringBuilder();
+					sb.append("Total DPS: ").append(total.getDps()).append ", Total Damage: ").append(total.getDamage());
+					for (DpsMember member : members.values()) {
+						sb.append("\n").append(member.getName()).append(": DPS: ").append(member.getDps()).append(", Damage: ").append(member.getDamage());
+					}
+					client.addChatMessage(0, "", sb.toString(), null);
+				}
 				members.values().forEach(DpsMember::reset);
 				total.reset();
 			}
